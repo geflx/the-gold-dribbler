@@ -19,8 +19,8 @@ public class Player : MonoBehaviour
 	#endregion
 
     // Characteristics
-    private float speed = 5f;
-    private float jumpForce = 6f;
+    private float speed = 2.5f;
+    private float jumpForce = 4.0f;
 
     // Movement
     Vector2 motionVector;
@@ -60,11 +60,5 @@ public class Player : MonoBehaviour
     {
         rigidBody.velocity = Vector2.up * jumpForce;
         jumpCounter--;
-    }
-
-    public void OnTriggerEnter2D (Collider2D collider)
-    {
-        if(collider.tag == "Ground")
-            jumpCounter = maxJumps;
     }
 }
