@@ -23,7 +23,6 @@ public class Player : MonoBehaviour
     private float jumpForce = 4.0f;
 
     // Movement
-    Vector2 motionVector;
     public int maxJumps = 2;
     public int jumpCounter = 2;
 
