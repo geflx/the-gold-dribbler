@@ -19,7 +19,7 @@ public class Jewel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //handleObjectLife();
+        handleObjectLife();
         move();
     }
 
@@ -41,7 +41,7 @@ public class Jewel : MonoBehaviour
 
     private void handleObjectLife ()
     {
-        if(distanceFromPlayer() > 30.0)
+        if(distanceFromPlayer() > 12.0)
             Destroy(gameObject);
     }
 

@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
 	#endregion
 
     public int horde;
-    public float[] hordeDuration = {20.0f, 15.0f};
+    public int subHordes = 1;
     public float intervalTime = 5f;
 
     void Start ()
@@ -29,7 +29,16 @@ public class GameManager : MonoBehaviour
 
     public void handleGameOver ()
     {
-        /* show something... */
         Debug.Log("Game over!");
+        /* show something on screen... */
+    }
+
+    public void OnHordeEnd ()
+    {
+        horde++;
+        subHordes *= 2;
+
+        /* activate horde timer */
+        /* ... */
     }
 }

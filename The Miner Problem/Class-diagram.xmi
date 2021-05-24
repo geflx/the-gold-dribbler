@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<XMI verified="false" xmi.version="1.2" timestamp="2021-05-23T17:13:20" xmlns:UML="http://schema.omg.org/spec/UML/1.4">
+<XMI verified="false" xmi.version="1.2" timestamp="2021-05-23T23:56:10" xmlns:UML="http://schema.omg.org/spec/UML/1.4">
  <XMI.header>
   <XMI.documentation>
    <XMI.exporter>umbrello uml modeller http://umbrello.kde.org</XMI.exporter>
@@ -148,10 +148,12 @@
       <UML:Class visibility="public" isSpecification="false" namespace="Logical_View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="uf2gcOMe3o9hy" name="Vector2"/>
       <UML:Generalization discriminator="" visibility="public" isSpecification="false" namespace="Logical_View" child="uVKhH7WRgYWV4" xmi.id="u67mDKP5dawj3" parent="u5H7yNN6hwXg3" name=""/>
       <UML:Generalization discriminator="" visibility="public" isSpecification="false" namespace="Logical_View" child="uyMsSyretKSmM" xmi.id="uKCNr9iA6kbVM" parent="u5H7yNN6hwXg3" name=""/>
+      <UML:Class visibility="public" isSpecification="false" namespace="Logical_View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="uhbTFzZkWAW38" name="HordeManager"/>
+      <UML:Class visibility="public" isSpecification="false" namespace="Logical_View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="udvDh1WqaVNFn" name="HordeTimer"/>
      </UML:Namespace.ownedElement>
      <XMI.extension xmi.extender="umbrello">
       <diagrams resolution="96">
-       <diagram showopsig="1" linecolor="#0091ff" snapx="25" showattribassocs="1" snapy="25" linewidth="1" showattsig="1" textcolor="#000000" isopen="1" showpackage="1" showpubliconly="0" showstereotype="1" name="class diagram" font="Bahnschrift SemiLight,11,-1,5,25,0,0,0,0,0" canvasheight="609.439" canvaswidth="728.488" localid="-1" snapcsgrid="0" showgrid="0" showops="1" griddotcolor="#d3d3d3" backgroundcolor="#ffffff" usefillcolor="1" fillcolor="#d6feff" zoom="93.57620873536675" xmi.id="ux3zn9Xh5Ax3Q" documentation="" showscope="1" snapgrid="0" showatts="1" type="1">
+       <diagram showopsig="1" linecolor="#0091ff" snapx="25" showattribassocs="1" snapy="25" linewidth="1" showattsig="1" textcolor="#000000" isopen="1" showpackage="1" showpubliconly="0" showstereotype="1" name="class diagram" font="Bahnschrift SemiLight,11,-1,5,25,0,0,0,0,0" canvasheight="739.351" canvaswidth="728.488" localid="-1" snapcsgrid="0" showgrid="0" showops="1" griddotcolor="#d3d3d3" backgroundcolor="#ffffff" usefillcolor="1" fillcolor="#d6feff" zoom="70.7570576448898" xmi.id="ux3zn9Xh5Ax3Q" documentation="" showscope="1" snapgrid="0" showatts="1" type="1">
         <widgets>
          <classwidget linecolor="#0091ff" usesdiagramfillcolor="0" linewidth="1" textcolor="#000000" showoperations="1" usesdiagramusefillcolor="0" showpubliconly="0" showpackage="1" x="-33606.3" showattsigs="601" showstereotype="1" y="-7498.1" showattributes="1" font="Bahnschrift SemiLight,11,-1,5,50,0,0,0,0,0" localid="u7ESJOcIdk5C1" width="180" isinstance="0" usefillcolor="1" fillcolor="#d6feff" xmi.id="uUnv7HXSFJkuV" autoresize="1" showscope="1" height="162" showopsigs="601"/>
          <classwidget linecolor="#0091ff" usesdiagramfillcolor="0" linewidth="1" textcolor="#000000" showoperations="1" usesdiagramusefillcolor="0" showpubliconly="0" showpackage="1" x="-33524.2" showattsigs="601" showstereotype="1" y="-7707.83" showattributes="1" font="Bahnschrift SemiLight,11,-1,5,50,0,0,0,0,0" localid="uHRhXowOjfoZR" width="206" isinstance="0" usefillcolor="1" fillcolor="#d6feff" xmi.id="uyMsSyretKSmM" autoresize="1" showscope="1" height="81" showopsigs="601"/>
@@ -159,7 +161,9 @@
          <classwidget linecolor="#0091ff" usesdiagramfillcolor="0" linewidth="1" textcolor="#000000" showoperations="1" usesdiagramusefillcolor="0" showpubliconly="0" showpackage="1" x="-33695.5" showattsigs="601" showstereotype="1" y="-7708.87" showattributes="1" font="Bahnschrift SemiLight,11,-1,5,50,0,0,0,0,0" localid="uagYD8NKAraPU" width="127" isinstance="0" usefillcolor="1" fillcolor="#d6feff" xmi.id="u5H7yNN6hwXg3" autoresize="1" showscope="1" height="81" showopsigs="601"/>
          <classwidget linecolor="#0091ff" usesdiagramfillcolor="0" linewidth="1" textcolor="#000000" showoperations="1" usesdiagramusefillcolor="0" showpubliconly="0" showpackage="1" x="-33963.4" showattsigs="601" showstereotype="1" y="-7692.73" showattributes="1" font="Bahnschrift SemiLight,11,-1,5,50,0,0,0,0,0" localid="udAwFmTFAmP7k" width="188" isinstance="0" usefillcolor="1" fillcolor="#d6feff" xmi.id="u5tH7NCuACxxs" autoresize="1" showscope="1" height="144" showopsigs="601"/>
          <boxwidget width="728.488" showstereotype="1" x="-34015.9" usesdiagramusefillcolor="0" y="-7794.59" usesdiagramfillcolor="0" isinstance="0" localid="ueO6BxTLROd3n" fillcolor="#d6feff" height="582.791" linecolor="#000000" xmi.id="uTf4pqHlwL7Kj" autoresize="0" textcolor="#000000" usefillcolor="1" linewidth="1" font="Bahnschrift SemiLight,11,-1,5,50,0,0,0,0,0"/>
-         <floatingtext linecolor="#0091ff" usesdiagramfillcolor="0" linewidth="1" textcolor="#000000" usesdiagramusefillcolor="0" x="-34015.4" showstereotype="1" y="-7821.24" text="The Miner Problem" font="Bahnschrift SemiLight,11,-1,5,50,0,0,0,0,0" localid="uurowwKqrqGbM" pretext="" role="700" width="133" isinstance="0" posttext="" usefillcolor="1" fillcolor="#d6feff" xmi.id="urUX4RUtDFFnK" autoresize="1" height="22"/>
+         <floatingtext linecolor="#0091ff" usesdiagramfillcolor="0" linewidth="1" textcolor="#000000" usesdiagramusefillcolor="0" x="-34015.4" showstereotype="1" y="-7821.24" text="The Miner Problem" font="Bahnschrift SemiLight,11,-1,5,50,0,0,0,0,0" localid="uurowwKqrqGbM" pretext="" role="700" width="96" isinstance="0" posttext="" usefillcolor="1" fillcolor="#d6feff" xmi.id="urUX4RUtDFFnK" autoresize="1" height="17"/>
+         <classwidget linecolor="#0091ff" usesdiagramfillcolor="0" linewidth="1" textcolor="#000000" showoperations="1" usesdiagramusefillcolor="0" showpubliconly="0" showpackage="1" x="-33494.9" showattsigs="601" showstereotype="1" y="-7951.15" showattributes="1" font="Bahnschrift SemiLight,11,-1,5,50,0,0,0,0,0" localid="uD7RxxVW2kyJO" width="120" isinstance="0" usefillcolor="1" fillcolor="#d6feff" xmi.id="uhbTFzZkWAW38" autoresize="1" showscope="1" height="36" showopsigs="601"/>
+         <classwidget linecolor="#0091ff" usesdiagramfillcolor="0" linewidth="1" textcolor="#000000" showoperations="1" usesdiagramusefillcolor="0" showpubliconly="0" showpackage="1" x="-33639" showattsigs="601" showstereotype="1" y="-7951.15" showattributes="1" font="Bahnschrift SemiLight,11,-1,5,50,0,0,0,0,0" localid="unc1VIfESBpya" width="97" isinstance="0" usefillcolor="1" fillcolor="#d6feff" xmi.id="udvDh1WqaVNFn" autoresize="1" showscope="1" height="36" showopsigs="601"/>
         </widgets>
         <messages/>
         <associations>
@@ -208,7 +212,7 @@
   </UML:Model>
  </XMI.content>
  <XMI.extensions xmi.extender="umbrello">
-  <docsettings viewid="ux3zn9Xh5Ax3Q" uniqueid="u5jPpuEDy6ip4" documentation=""/>
+  <docsettings viewid="ux3zn9Xh5Ax3Q" uniqueid="unc1VIfESBpya" documentation=""/>
   <listview>
    <listitem open="1" type="800" id="Views">
     <listitem open="1" type="821" id="Component_View"/>
@@ -249,6 +253,8 @@
       <listitem open="0" type="814" id="uN9dACikqUrVG"/>
      </listitem>
      <listitem open="1" type="813" id="uEukNxbVVjCUj"/>
+     <listitem open="1" type="813" id="uhbTFzZkWAW38"/>
+     <listitem open="1" type="813" id="udvDh1WqaVNFn"/>
      <listitem open="1" type="813" id="u5tH7NCuACxxs">
       <listitem open="0" type="814" id="uHjoUgfsIqSwr"/>
       <listitem open="0" type="815" id="ujYj1rvNb73Ca"/>
