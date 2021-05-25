@@ -4,19 +4,35 @@ using UnityEngine;
 
 public class IntervalTimer : MonoBehaviour
 {
-    private float duration = 4.0f;
+    #region Singleton
+	public static IntervalTimer instance;
 
-    void Start()
+	void Awake() {
+		if(instance != null) {
+			Debug.LogWarning ("More than one instance of Inventory found!");
+			return;
+		}
+		instance = this;
+	}
+	#endregion
+
+    private float duration;
+    private const float defaultDuration = 4.0f;
+
+    public void StartTimer()
     {
+        duration = defaultDuration;
         HordeManager.instance.intervalOn = true;
     }
 
     void Update()
     {
-        runClock();
+        if(HordeManager.instance.intervalOn) {
+            runClock();
 
-        if (duration < 0.0f)
-            OnTimeIsUp();
+            if (duration < 0.0f)
+                OnTimeIsUp();
+        }
     }
 
     private void runClock ()
@@ -26,6 +42,7 @@ public class IntervalTimer : MonoBehaviour
 
     private void OnTimeIsUp ()
     {
+        Debug.Log("Interval is over...");
         HordeManager.instance.intervalOn = false;
 
         /* show message about next Horde in Game UI */
