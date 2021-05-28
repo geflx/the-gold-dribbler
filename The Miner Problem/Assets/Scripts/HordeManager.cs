@@ -22,7 +22,7 @@ public class HordeManager : MonoBehaviour
 
     void Start()
     {
-        horde = 1;
+        horde = 0;
         hordeOn = false;
 
         /* First method execution will the interval timer (game's beginning). */
@@ -42,10 +42,15 @@ public class HordeManager : MonoBehaviour
             Save current method call as "last call" */
         if(!hordeOn && !intervalOn) {
             
-            if(lastRun == "interval")
+            if(lastRun == "interval") {
+                horde++;
+                CanvasManager.instance.ShowHorde();
                 HordeTimer.instance.StartTimer();
-            else
+            }
+            else {
+                CanvasManager.instance.HideHorde();
                 IntervalTimer.instance.StartTimer();
+            }
 
             lastRun = (lastRun == "interval") ? "horde" : "interval";
         }

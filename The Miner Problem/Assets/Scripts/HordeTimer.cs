@@ -16,40 +16,69 @@ public class HordeTimer : MonoBehaviour
 	}
 	#endregion
 
-    private float[] durations = {3f};
-    private float duration;
+    private float[] durations = {12f, 16f, 25f};
+    private float currDuration, chosenDuration;
+    private float shotsInterval;
 
     public List<JewelFactory> factories;
 
     public void StartTimer()
     {
         HordeManager.instance.hordeOn = true;
-        duration = durations[0];
+        chosenDuration = currDuration = durations[0];
+
+        SetupHordeParameters();
+        SetupShots();
     }
 
     void Update()
     {
         if(HordeManager.instance.hordeOn) {
             runClock();
-            ShotJewels();
 
-            if (duration < 0.0f)
+            if (currDuration < 0.0f)
                 OnHordeIsOver();
         }
     }
 
     private void runClock ()
     {
-        duration -= Time.deltaTime;
+        currDuration -= Time.deltaTime;
+    }
+
+    private void SetupHordeParameters ()
+    {
+        int horde = HordeManager.instance.horde;
+        
+        if (horde <= 3)         shotsInterval = 3.0f;
+        else if (horde <= 7)    shotsInterval = 2.5f;
+        else if (horde <= 11)   shotsInterval = 2.0f;
+        else if (horde <= 15)   shotsInterval = 1.5f;
+        else                    shotsInterval = 1.0f;
     }
 
     public void OnHordeIsOver()
     {
-        Debug.Log("Horde is over...");
         HordeManager.instance.hordeOn = false;
     }
 
-    public void ShotJewels()
+    private IEnumerator coroutineShot (float time)
+    {
+        yield return new WaitForSeconds(time);
+        ShotAllJewels();
+    }
+
+    public void SetupShots()
+    {
+        IEnumerator coroutine;
+
+        for (float dur = 0.0f; dur <= chosenDuration; dur += shotsInterval) {
+            coroutine = coroutineShot(dur);
+            StartCoroutine (coroutine);
+        }
+    }
+
+    public void ShotAllJewels()
     {
         foreach(JewelFactory jf in factories)
         {

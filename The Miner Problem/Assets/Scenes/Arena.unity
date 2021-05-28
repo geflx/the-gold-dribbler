@@ -236,7 +236,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02bded92d45afa64abce28cb47e3995e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 0
   factories:
   - {fileID: 2006096339}
 --- !u!1 &205372525
@@ -1022,6 +1021,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &578810805
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 578810807}
+  - component: {fileID: 578810806}
+  m_Layer: 0
+  m_Name: CanvasManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &578810806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 578810805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e092a4be1ba255243b01d7430bb72569, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hordeLabel: {fileID: 1120497008}
+--- !u!4 &578810807
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 578810805}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.2248011, y: 0.23553444, z: -13.075002}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &607380710
 GameObject:
   m_ObjectHideFlags: 0
@@ -1295,7 +1338,7 @@ MonoBehaviour:
   m_LightType: 3
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.592
-  m_Color: {r: 0.1764706, g: 0.90925103, b: 1, a: 1}
+  m_Color: {r: 0.84954184, g: 0.17647058, b: 1, a: 1}
   m_Intensity: 1
   m_LightVolumeOpacity: 0.083
   m_ApplyToSortingLayers: 00000000
@@ -1307,8 +1350,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensity: 0
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 1
-  m_PointLightOuterRadius: 3.1859112
+  m_PointLightInnerRadius: 1.5985324
+  m_PointLightOuterRadius: 3.942405
   m_PointLightDistance: 3
   m_PointLightQuality: 1
   m_ShapeLightParametricSides: 5
@@ -1328,7 +1371,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1002465685}
-  m_LocalRotation: {x: -0, y: 0, z: -0.037257954, w: 0.9993057}
+  m_LocalRotation: {x: -0, y: 0, z: -0.05831698, w: 0.9982981}
   m_LocalPosition: {x: 1.163471, y: 0.53303146, z: 53.564453}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1661,7 +1704,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1120497007
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1700,7 +1743,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Horde 1
+  m_text: Horde
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 16cc53dab25496c408643fea789d5b4b, type: 2}
   m_sharedMaterial: {fileID: 6843680986928558991, guid: 16cc53dab25496c408643fea789d5b4b,
@@ -1728,8 +1771,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 100
+  m_fontSizeBase: 100
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2212,8 +2255,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1759704486}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -91.97, y: 11.77, z: 102.03484}
-  m_LocalScale: {x: 1.0238844, y: 1.0099102, z: 1.11}
+  m_LocalPosition: {x: -91.986, y: 11.77, z: 102.03484}
+  m_LocalScale: {x: 1.1889484, y: 1.0099102, z: 1.11}
   m_Children: []
   m_Father: {fileID: 680905712}
   m_RootOrder: 0
@@ -2635,7 +2678,7 @@ MonoBehaviour:
   m_LightType: 3
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.592
-  m_Color: {r: 0.17647058, g: 1, b: 0.25528866, a: 1}
+  m_Color: {r: 0.9026841, g: 0.17647058, b: 1, a: 1}
   m_Intensity: 1
   m_LightVolumeOpacity: 0.083
   m_ApplyToSortingLayers: 00000000
@@ -2647,8 +2690,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensity: 0
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 1
-  m_PointLightOuterRadius: 3.1859112
+  m_PointLightInnerRadius: 1.6341925
+  m_PointLightOuterRadius: 3.6301785
   m_PointLightDistance: 3
   m_PointLightQuality: 1
   m_ShapeLightParametricSides: 5
@@ -2668,7 +2711,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1960980483}
-  m_LocalRotation: {x: -0, y: 0, z: -0.037257954, w: 0.9993057}
+  m_LocalRotation: {x: -0, y: 0, z: -0.05300501, w: 0.9985943}
   m_LocalPosition: {x: -7.986529, y: 0.6330315, z: 53.564453}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2733,7 +2776,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2006096337}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.27, y: 2.39, z: -1.1198345}
+  m_LocalPosition: {x: -11.13, y: 1.33, z: -1.1198345}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1058234696}
@@ -2949,6 +2992,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rubi
       objectReference: {fileID: 0}
+    - target: {fileID: 5146369985456833974, guid: f21fcdd9625d90c4b966abdde9f4d650,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f21fcdd9625d90c4b966abdde9f4d650, type: 3}
 --- !u!1001 &8849492839788931465
@@ -2962,6 +3010,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Diamond
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849492840016613897, guid: fdb7e200f8811c9409529b4df85a54e8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8849492840016613899, guid: fdb7e200f8811c9409529b4df85a54e8,
         type: 3}
