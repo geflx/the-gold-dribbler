@@ -17,7 +17,7 @@ public class IntervalTimer : MonoBehaviour
 	#endregion
 
     private float duration;
-    private const float defaultDuration = 4.0f;
+    private const float defaultDuration = 6.0f;
 
     public void StartTimer()
     {

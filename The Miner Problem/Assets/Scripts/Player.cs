@@ -39,6 +39,10 @@ public class Player : MonoBehaviour
     void Update()
     {
         move();
+
+        // Tmp
+        if (Mathf.Abs(rigidBody.velocity.x) < 0.1 && Mathf.Abs(rigidBody.velocity.y ) < 0.1)
+            GameManager.instance.score += Time.deltaTime;
     }
 
     void move() 

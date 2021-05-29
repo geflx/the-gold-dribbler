@@ -19,6 +19,12 @@ public class CanvasManager : MonoBehaviour
 	#endregion
 
     public TMP_Text hordeLabel;
+    public TMP_Text scoreLabel;
+
+    void FixedUpdate () 
+    {
+        scoreLabel.text = (GameManager.instance.score).ToString("0.0");
+    }
 
     public void ShowHorde ()
     {

@@ -50,10 +50,10 @@ public class HordeTimer : MonoBehaviour
     {
         int horde = HordeManager.instance.horde;
         
-        if (horde <= 3)         shotsInterval = 3.0f;
-        else if (horde <= 7)    shotsInterval = 2.5f;
-        else if (horde <= 11)   shotsInterval = 2.0f;
-        else if (horde <= 15)   shotsInterval = 1.5f;
+        if (horde <= 3)         shotsInterval = 6.0f;
+        else if (horde <= 7)    shotsInterval = 5.0f;
+        else if (horde <= 11)   shotsInterval = 3.0f;
+        else if (horde <= 15)   shotsInterval = 2.0f;
         else                    shotsInterval = 1.0f;
     }
 
@@ -72,7 +72,7 @@ public class HordeTimer : MonoBehaviour
     {
         IEnumerator coroutine;
 
-        for (float dur = 0.0f; dur <= chosenDuration; dur += shotsInterval) {
+        for (float dur = 0.0f; dur < chosenDuration; dur += shotsInterval) {
             coroutine = coroutineShot(dur);
             StartCoroutine (coroutine);
         }

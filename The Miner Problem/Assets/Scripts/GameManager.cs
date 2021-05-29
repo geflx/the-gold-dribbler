@@ -19,12 +19,14 @@ public class GameManager : MonoBehaviour
 	#endregion
 
     public int horde;
+    public float score;
     public int subHordes = 1;
     public float intervalTime = 5f;
 
     void Start ()
     {
         horde = 0;
+        score = 0;
     }
 
     public void handleGameOver ()
