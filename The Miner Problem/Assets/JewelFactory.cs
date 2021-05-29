@@ -30,10 +30,10 @@ public class JewelFactory : MonoBehaviour
                 GetNewDiamond();
                 break;
             case 2:
-                GetNewRubi();
+                GetNewEmerald();
                 break;
             case 3:
-                GetNewEmerald();
+                GetNewRubi();
                 break;                
         }
     }

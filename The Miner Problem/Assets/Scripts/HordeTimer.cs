@@ -16,7 +16,7 @@ public class HordeTimer : MonoBehaviour
 	}
 	#endregion
 
-    private float[] durations = {12f, 16f, 25f};
+    private float[] durations = {14f, 16f, 25f};
     private float currDuration, chosenDuration;
     private float shotsInterval;
     private string difficulty;
@@ -82,6 +82,8 @@ public class HordeTimer : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
 
+        bullets = Mathf.Min(bullets, factories.Count);
+
         if (difficulty == "easy")                EasyShots(bullets);   
         else if (difficulty == "medium")         MediumShots(bullets);
         else if (difficulty == "hard")           HardShots(bullets);
@@ -92,12 +94,11 @@ public class HordeTimer : MonoBehaviour
     public void SetupShots()
     {
         IEnumerator coroutine;
-        int bullets = 0;
+        int bullets = 2;
 
         for (float dur = 0.0f; dur < chosenDuration; dur += shotsInterval) {
-            coroutine = coroutineShot(dur, bullets);
+            coroutine = coroutineShot(dur, bullets++);
             StartCoroutine (coroutine);
-            ++bullets;
         }
     }
 
@@ -127,22 +128,37 @@ public class HordeTimer : MonoBehaviour
 
     public void EasyShots (int bullets)
     {
+        // Reducing minimal number of bullets to 1.
+        bullets--;
         
+        int[] order = getRandomFactories();
+        for (int i = 0; i < bullets; i++) {
+            factories[order[i]].GetNewJewel(1);
+        }
     }
 
     public void MediumShots (int bullets)
     {
-        
+        int[] order = getRandomFactories();
+        for (int i = 0; i < bullets; i++) {
+            factories[order[i]].GetNewJewel(2);
+        }
     }
 
     public void HardShots (int bullets)
     {
-
+        int[] order = getRandomFactories();
+        for (int i = 0; i < bullets; i++) {
+            factories[order[i]].GetNewJewel(3);
+        }
     }
 
     public void InsaneShots (int bullets)
     {
-
+        int[] order = getRandomFactories();
+        for (int i = 0; i < bullets; i++) {
+            factories[order[i]].GetNewJewel(4);
+        }
     }
 
     public void ImpossibleShots (int bullets)
