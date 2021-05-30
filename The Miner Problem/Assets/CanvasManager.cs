@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
+
 
 public class CanvasManager : MonoBehaviour
 {
@@ -34,5 +36,15 @@ public class CanvasManager : MonoBehaviour
     public void HideHorde ()
     {
         hordeLabel.text = "";
+    }
+
+    public void PlayAgain ()
+    {
+        SceneManager.LoadScene("Arena");
+    }
+
+    public void GoToMenu ()
+    {
+        SceneManager.LoadScene("Menu");
     }
 }

@@ -29,23 +29,43 @@ public class Player : MonoBehaviour
     // Components
     private Rigidbody2D rigidBody;
 
+    // Canvas
+    private Color frozenScore = new Color (0.21f, 0.90f, 1.0f, 1.0f);
+    private Color activeScore = new Color (1.0f, 0.86f, 0f, 1.0f);
+
     // Start is called before the first frame update
     void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
         move();
-
-        // Tmp
-        if (Mathf.Abs(rigidBody.velocity.x) < 0.1 && Mathf.Abs(rigidBody.velocity.y ) < 0.1)
-            GameManager.instance.score += Time.deltaTime;
+        handleScore();
+        handleSuicide();
     }
 
-    void move() 
+    private void handleSuicide()
+    {
+        if (gameObject.transform.position.y <= -6f)
+            GameManager.instance.handleGameOver();
+    }
+
+    private void handleScore ()
+    {
+        if (Mathf.Abs(rigidBody.velocity.x) < 0.1 && Mathf.Abs(rigidBody.velocity.y ) < 0.1) {
+            GameManager.instance.score += Time.deltaTime;
+            CanvasManager.instance.scoreLabel.color = activeScore;
+        }
+        else {
+            CanvasManager.instance.scoreLabel.color = frozenScore;
+        }
+    }
+
+    private void move() 
     {
         moveHorizontally();
 
@@ -53,13 +73,13 @@ public class Player : MonoBehaviour
             jump();
     }
 
-    void moveHorizontally ()
+    private void moveHorizontally ()
     {
         float direction = Input.GetAxisRaw("Horizontal");
         rigidBody.velocity = new Vector2(direction * speed, rigidBody.velocity.y);
     }
 
-    void jump ()
+    private void jump ()
     {
         rigidBody.velocity = Vector2.up * jumpForce;
         jumpCounter--;

@@ -22,25 +22,23 @@ public class GameManager : MonoBehaviour
     public float score;
     public int subHordes = 1;
     public float intervalTime = 5f;
+    public GameObject gameOverPanel;
 
     void Start ()
     {
         horde = 0;
-        score = 0;
+        score = 0;        
+
+        Time.timeScale = 1;
+        AudioManager.instance.PlayGameplaySound();
     }
 
     public void handleGameOver ()
     {
         Debug.Log("Game over!");
-        /* show something on screen... */
+        Time.timeScale = 0;
+        gameOverPanel.SetActive (true);
+        AudioManager.instance.PlayGameOverSound();
     }
 
-    public void OnHordeEnd ()
-    {
-        horde++;
-        subHordes *= 2;
-
-        /* activate horde timer */
-        /* ... */
-    }
 }
