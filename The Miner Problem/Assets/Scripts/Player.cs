@@ -25,9 +25,11 @@ public class Player : MonoBehaviour
     // Movement
     public int maxJumps = 2;
     public int jumpCounter = 2;
+    public bool isGrounded;
 
     // Components
     private Rigidbody2D rigidBody;
+    private Animator animator;
 
     // Canvas
     private Color frozenScore = new Color (0.21f, 0.90f, 1.0f, 1.0f);
@@ -36,16 +38,25 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        isGrounded = true;
         rigidBody = GetComponent<Rigidbody2D>();
-
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
         move();
+        updateAnimator();
         handleScore();
         handleSuicide();
+    }
+
+    private void updateAnimator()
+    {
+        animator.SetBool("isGrounded", isGrounded);
+        animator.SetFloat("speed", Mathf.Abs(rigidBody.velocity.x));
+        animator.SetFloat("velocityY", rigidBody.velocity.y);
     }
 
     private void handleSuicide()
