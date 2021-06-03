@@ -1,0 +1,30 @@
+NextHordeTrigger
+
+StartTrigger() 
+    ativa triggerIsOn
+    ativa boxCollider2D trigger
+    explodeRockAnimation()
+
+ExplodeRock()
+    ativa animacao unica
+
+ActivateIndicatorArrow (bool active)
+    ativa ou desativa animação da seta
+
+TeleportPlayer()
+    teleporta player para acima da tela
+
+LoadLevelLayout
+    desativa level atual
+    carrega um layout qualquer de uma lista de layout da fase
+
+OnTriggerEnter2D()
+    if player
+        LoadLevelLayout
+        TeleportPlayer
+        ativa pedra
+        yield StopTrigger in 2 seconds
+
+
+StopTrigger()
+    desativa triggerIsOn

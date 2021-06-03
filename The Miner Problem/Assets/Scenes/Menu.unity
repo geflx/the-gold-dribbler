@@ -950,14 +950,14 @@ RectTransform:
   m_GameObject: {fileID: 1833406553}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.4344, y: 1.4344, z: 1.4344}
+  m_LocalScale: {x: 2.36217, y: 2.36217, z: 2.36217}
   m_Children: []
   m_Father: {fileID: 1481093177}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 5.1, y: 75.5}
+  m_AnchoredPosition: {x: 19, y: 75.5}
   m_SizeDelta: {x: 607.79785, y: 201.00844}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1833406555
@@ -979,7 +979,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: The miner problem
+  m_text: THE GOLD DRIBBLER
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 16cc53dab25496c408643fea789d5b4b, type: 2}
   m_sharedMaterial: {fileID: 6843680986928558991, guid: 16cc53dab25496c408643fea789d5b4b,
@@ -991,13 +991,13 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
-  m_enableVertexGradient: 0
+  m_enableVertexGradient: 1
   m_colorMode: 3
   m_fontColorGradient:
-    topLeft: {r: 1, g: 1, b: 1, a: 1}
-    topRight: {r: 1, g: 1, b: 1, a: 1}
-    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
-    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+    topLeft: {r: 1, g: 0.84102535, b: 0.21226418, a: 1}
+    topRight: {r: 1, g: 0.99151766, b: 0.3726415, a: 1}
+    bottomLeft: {r: 1, g: 0.43648222, b: 0.3160377, a: 1}
+    bottomRight: {r: 1, g: 0.5870138, b: 0.25, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
@@ -1007,14 +1007,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 130
+  m_fontSize: 72
   m_fontSizeBase: 130
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 8
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 32
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
