@@ -18,7 +18,7 @@ public class NextHordeTrigger : MonoBehaviour
 
     public bool waitingForPlayer;
     private BoxCollider2D boxCollider;
-    public SpriteRenderer bottomRocks;
+    public Animator bottomRocks;
 
     public GameObject downArrow;
     public Animator downArrowAnimator;
@@ -36,7 +36,7 @@ public class NextHordeTrigger : MonoBehaviour
         waitingForPlayer = false;
         boxCollider = GetComponent<BoxCollider2D>();
         boxCollider.enabled = false;
-        bottomRocks.enabled = true;
+        bottomRocks.SetBool("isActive", true);
 
         /* Initialize level layout order queue in asceding order */
         for (int i = 1; i < levelLayouts.Count; i++)
@@ -53,7 +53,7 @@ public class NextHordeTrigger : MonoBehaviour
         /* Activate trigger boolean, activate teleporting, explode rocks, activate portal and activate downArrow indicator. */
         HordeManager.instance.nextHordeTriggerOn = true;
         waitingForPlayer = true;
-        bottomRocks.enabled = false;
+        bottomRocks.SetBool("isActive", false);
         boxCollider.enabled = true;        
         downArrowAnimator.SetBool("isActive", true);
     }
@@ -84,7 +84,7 @@ public class NextHordeTrigger : MonoBehaviour
         SetupNextLevelLayout();
         TeleportPlayer();
 
-        bottomRocks.enabled = true;
+        bottomRocks.SetBool("isActive", true);
         boxCollider.enabled = false;
         downArrowAnimator.SetBool("isActive", false);
 

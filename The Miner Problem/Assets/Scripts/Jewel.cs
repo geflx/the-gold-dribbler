@@ -16,8 +16,8 @@ public class Jewel : MonoBehaviour
     private float maxOuterRadius = 2.3f;
     private bool increaseOuterRadius = true;
 
-    private float minIntensity = 1f;
-    private float maxIntensity = 2f;
+    private float minIntensity = 0.8f;
+    private float maxIntensity = 1.4f;
     private bool increaseIntensity = true;
 
     // Start is called before the first frame update
@@ -53,9 +53,9 @@ public class Jewel : MonoBehaviour
     private void changeIntensity ()
     {
         if (increaseIntensity)
-            light.intensity += (speed / 2.0f) * Time.deltaTime;
+            light.intensity += (speed / 3.0f) * Time.deltaTime;
         else
-            light.intensity -= (speed / 2.0f) * Time.deltaTime;
+            light.intensity -= (speed / 3.0f) * Time.deltaTime;
         
         // Check boundaries (and change bool guide variable if necessary).
         if(light.intensity > maxIntensity || light.intensity < minIntensity) {

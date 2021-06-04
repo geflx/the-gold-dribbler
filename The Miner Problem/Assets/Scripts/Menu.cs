@@ -18,8 +18,19 @@ public class Menu : MonoBehaviour
         creditsPanel.SetActive(true);
     }
 
-    public void LoadGame () {
+    public void LoadGame () 
+    {
         SceneManager.LoadScene("Arena");
+    }
+
+    public void LoadIntro () 
+    {
+        SceneManager.LoadScene("Introduction");
+    }
+
+    public void QuitGame () 
+    {
+        Application.Quit();
     }
 
     public void ShowCommands (bool show)
@@ -30,5 +41,5 @@ public class Menu : MonoBehaviour
     public void ShowCredits (bool show)
     {
         creditsAnim.SetBool("isActive", show);
-    }
+    }  
 }
