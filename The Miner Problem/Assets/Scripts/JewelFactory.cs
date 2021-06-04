@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class JewelFactory : MonoBehaviour
 {
+    public Jewel gold;
     public Jewel diamond;
     public Jewel rubi;
     public Jewel emerald;
+
+    public void GetNewGold ()
+    {
+        Instantiate (gold, transform.position, Quaternion.identity);
+    }
 
     public void GetNewDiamond ()
     {
@@ -27,14 +33,17 @@ public class JewelFactory : MonoBehaviour
     {
         switch (index) {
             case 1:
-                GetNewDiamond();
+                GetNewGold();
                 break;
             case 2:
-                GetNewEmerald();
+                GetNewDiamond();
                 break;
             case 3:
+                GetNewEmerald();
+                break;    
+            case 4:
                 GetNewRubi();
-                break;                
+                break;            
         }
     }
 }

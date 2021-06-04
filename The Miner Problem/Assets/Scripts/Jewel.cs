@@ -81,7 +81,7 @@ public class Jewel : MonoBehaviour
 
     private void handleObjectLife ()
     {
-        if(distanceFromPlayer() > 20.0)
+        if(distanceFromPlayer() > 20.0 || gameObject.transform.position.y > 6.0f)
             Destroy(gameObject);
     }
 

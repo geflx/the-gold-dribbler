@@ -84,7 +84,7 @@ public class Player : MonoBehaviour
 
     private void handleScore ()
     {
-        if (HordeManager.instance.hordeOn) {
+        if (HordeManager.instance.runScore) {
             GameManager.instance.score += Time.deltaTime;
             CanvasManager.instance.scoreLabel.color = activeScore;
         }

@@ -26,6 +26,7 @@ public class HordeTimer : MonoBehaviour
     public void StartTimer()
     {
         HordeManager.instance.hordeOn = true;
+        HordeManager.instance.runScore = true;
         chosenDuration = currDuration = durations[0];
 
         SetupHordeParameters();
@@ -63,18 +64,24 @@ public class HordeTimer : MonoBehaviour
             shotsInterval = 3.0f;
             difficulty = "hard";
         }
-        else if (horde <= 15) {
+        else {
             shotsInterval = 2.0f;
             difficulty = "insane";
         }
-        else {
-            shotsInterval = 1.0f;
-            difficulty = "impossible";
-        }
+    }
+
+    private IEnumerator disableScore (float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        HordeManager.instance.runScore = false;
     }
 
     public void OnHordeIsOver()
     {
+        IEnumerator coroutine;
+        coroutine = disableScore (4.0f);
+        StartCoroutine(coroutine);
+        
         HordeManager.instance.hordeOn = false;
     }
 
@@ -87,8 +94,7 @@ public class HordeTimer : MonoBehaviour
         if (difficulty == "easy")                EasyShots(bullets);   
         else if (difficulty == "medium")         MediumShots(bullets);
         else if (difficulty == "hard")           HardShots(bullets);
-        else if (difficulty == "insane")         InsaneShots(bullets);
-        else if (difficulty == "impossible")     ImpossibleShots(bullets);
+        else                                     InsaneShots(bullets);
     }
 
     public void SetupShots()
@@ -159,10 +165,5 @@ public class HordeTimer : MonoBehaviour
         for (int i = 0; i < bullets; i++) {
             factories[order[i]].GetNewJewel(4);
         }
-    }
-
-    public void ImpossibleShots (int bullets)
-    {
-
     }
 }

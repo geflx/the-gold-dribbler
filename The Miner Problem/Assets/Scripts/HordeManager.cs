@@ -17,17 +17,20 @@ public class HordeManager : MonoBehaviour
 	#endregion
 
     public int horde;
-    public bool hordeOn, intervalOn;
+    public bool hordeOn, intervalOn, nextHordeTriggerOn;
     private string lastRun;
+    public bool runScore; /* Same as hordeOn, but with additional 2 seconds after horde is over. */
 
     void Start()
     {
         horde = 0;
         hordeOn = false;
+        runScore = false;
 
         /* First method execution will the interval timer (game's beginning). */
+        nextHordeTriggerOn = false;
         intervalOn = true;
-        lastRun = "interval";
+        lastRun = "nextHordeTrigger";
         IntervalTimer.instance.StartTimer();
     }
 
@@ -37,22 +40,26 @@ public class HordeManager : MonoBehaviour
     }
 
     private void handleFunctionCall ()
-    {
+    {   
+        /* Game beginning interval... */
+        if (intervalOn)
+            return;
+
         /* Activate HordeTimer if last call was intervalTimer, and vice-versa.
             Save current method call as "last call" */
-        if(!hordeOn && !intervalOn) {
+        if(!hordeOn && !nextHordeTriggerOn) {
             
-            if(lastRun == "interval") {
+            if(lastRun == "nextHordeTrigger") {
                 horde++;
                 CanvasManager.instance.ShowHorde();
                 HordeTimer.instance.StartTimer();
             }
             else {
                 CanvasManager.instance.HideHorde();
-                IntervalTimer.instance.StartTimer();
+                NextHordeTrigger.instance.StartNextHordeTrigger();
             }
 
-            lastRun = (lastRun == "interval") ? "horde" : "interval";
+            lastRun = (lastRun == "nextHordeTrigger") ? "horde" : "nextHordeTrigger";
         }
     }
 }

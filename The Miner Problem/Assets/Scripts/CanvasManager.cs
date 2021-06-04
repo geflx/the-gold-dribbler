@@ -22,6 +22,8 @@ public class CanvasManager : MonoBehaviour
 
     public TMP_Text hordeLabel;
     public TMP_Text scoreLabel;
+    public TMP_Text hordeHighscore;
+    public TMP_Text timeHighscore;
 
     void FixedUpdate () 
     {
@@ -30,7 +32,7 @@ public class CanvasManager : MonoBehaviour
 
     public void ShowHorde ()
     {
-        hordeLabel.text = "Horde " + HordeManager.instance.horde;
+        hordeLabel.text = "Level " + HordeManager.instance.horde;
     }
 
     public void HideHorde ()
@@ -46,5 +48,26 @@ public class CanvasManager : MonoBehaviour
     public void GoToMenu ()
     {
         SceneManager.LoadScene("Menu");
+    }
+
+    public void UpdateHighscore (float currScore)
+    {
+        int currHorde = HordeManager.instance.horde;
+
+        float maxTime = PlayerPrefs.GetFloat("timeHighscore", 0f);
+        int maxHorde = PlayerPrefs.GetInt("hordeHighscore", 1);
+
+        if(maxTime < currScore) {
+            PlayerPrefs.SetFloat("timeHighscore", currScore);
+            maxTime = currScore;
+        }
+
+        if(maxHorde < currHorde) {
+            PlayerPrefs.SetInt("hordeHighscore", currHorde);
+            maxHorde = currHorde;
+        }
+
+        hordeHighscore.text = maxHorde.ToString();
+        timeHighscore.text = maxTime.ToString("0.0");
     }
 }
