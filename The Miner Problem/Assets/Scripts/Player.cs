@@ -38,6 +38,10 @@ public class Player : MonoBehaviour
     private Color frozenScore = new Color (0.21f, 0.90f, 1.0f, 1.0f);
     private Color activeScore = new Color (1.0f, 0.86f, 0f, 1.0f);
 
+    // Mobile mode
+    public Joystick joystick;
+    public bool mobileMode;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,7 +54,11 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        move();
+        if (mobileMode)
+            moveMobileMode();
+        else
+            move();
+
         checkSpriteRendererFlip();
         updateAnimator();
         handleScore();
@@ -111,5 +119,24 @@ public class Player : MonoBehaviour
     {
         rigidBody.velocity = Vector2.up * jumpForce;
         jumpCounter--;
+    }
+
+    private void moveMobileMode() 
+    {
+        // Handle joystick dead zone sensitivity.
+        if (joystick.Horizontal >= 0.2f)
+            direction = 1;
+        else if (joystick.Horizontal <= -0.2f)
+            direction = -1;
+        else
+            direction = 0;
+
+        rigidBody.velocity = new Vector2(direction * speed, rigidBody.velocity.y);
+    }
+
+    public void jumpMobileMode()
+    {
+        if(jumpCounter > 0)
+            jump();
     }
 }
