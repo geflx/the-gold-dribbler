@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="The Miner Problem/Readme/the-gold-dribbler.png" alt="Logo" width="104" height="156">
+    <img src="The Miner Problem/Assets/Media/Sprites/Icon/icone.png" alt="Logo" width="104" height="156">
     </a>
     <h3 align="center">The Gold Dribbler</h3>
     <p align="center">
