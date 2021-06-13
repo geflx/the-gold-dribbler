@@ -19,8 +19,8 @@ public class Player : MonoBehaviour
 	#endregion
 
     // Characteristics
-    private float speed = 2.5f;
-    private float jumpForce = 4.0f;
+    private float speed = 3.2f;
+    private float jumpForce = 4.9f;
 
     // Movement
     public int maxJumps = 2;
