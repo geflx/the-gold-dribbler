@@ -42,11 +42,6 @@ public class IntervalTimer : MonoBehaviour
 
     private void OnTimeIsUp ()
     {
-        Debug.Log("Interval is over...");
         HordeManager.instance.intervalOn = false;
-
-        /* show message about next Horde in Game UI */
-
-        /* maybe this timer will need to talk with horde timer... */
     }
 }

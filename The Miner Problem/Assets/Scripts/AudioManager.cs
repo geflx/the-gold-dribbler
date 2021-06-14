@@ -9,7 +9,7 @@ public class AudioManager : MonoBehaviour
 
 	void Awake() {
 		if(instance != null) {
-			Debug.LogWarning ("More than one instance of Inventory found!");
+			Debug.LogWarning ("More than one instance of AudioManager found!");
 			return;
 		}
 		instance = this;

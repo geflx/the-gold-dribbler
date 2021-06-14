@@ -13,7 +13,7 @@ public class CanvasManager : MonoBehaviour
 
 	void Awake() {
 		if(instance != null) {
-			Debug.LogWarning ("More than one instance of Inventory found!");
+			Debug.LogWarning ("More than one instance of CanvasManager found!");
 			return;
 		}
 		instance = this;
@@ -50,6 +50,7 @@ public class CanvasManager : MonoBehaviour
         SceneManager.LoadScene("Menu");
     }
 
+    // Update highscore if current score is greater than highscore
     public void UpdateHighscore (float currScore)
     {
         int currHorde = HordeManager.instance.horde;

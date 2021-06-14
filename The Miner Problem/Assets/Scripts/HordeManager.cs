@@ -17,8 +17,12 @@ public class HordeManager : MonoBehaviour
 	#endregion
 
     public int horde;
-    public bool hordeOn, intervalOn, nextHordeTriggerOn;
-    private string lastRun;
+
+    private string lastFunctionCall;
+
+    public bool intervalOn;
+    public bool nextHordeTriggerOn;
+    public bool hordeOn;
     public bool runScore; /* Same as hordeOn, but with additional 2 seconds after horde is over. */
 
     void Start()
@@ -27,19 +31,20 @@ public class HordeManager : MonoBehaviour
         hordeOn = false;
         runScore = false;
 
-        /* First method execution will the interval timer (game's beginning). */
+        /* First method execution: interval timer (game beginning). */
         nextHordeTriggerOn = false;
         intervalOn = true;
-        lastRun = "nextHordeTrigger";
+        lastFunctionCall = "nextHordeTrigger";
         IntervalTimer.instance.StartTimer();
     }
 
     void Update()
     {
-        handleFunctionCall();
+        manageHorde();
     }
 
-    private void handleFunctionCall ()
+
+    private void manageHorde ()
     {   
         /* Game beginning interval... */
         if (intervalOn)
@@ -49,7 +54,7 @@ public class HordeManager : MonoBehaviour
             Save current method call as "last call" */
         if(!hordeOn && !nextHordeTriggerOn) {
             
-            if(lastRun == "nextHordeTrigger") {
+            if(lastFunctionCall == "nextHordeTrigger") {
                 horde++;
                 CanvasManager.instance.ShowHorde();
                 HordeTimer.instance.StartTimer();
@@ -59,7 +64,7 @@ public class HordeManager : MonoBehaviour
                 NextHordeTrigger.instance.StartNextHordeTrigger();
             }
 
-            lastRun = (lastRun == "nextHordeTrigger") ? "horde" : "nextHordeTrigger";
+            lastFunctionCall = (lastFunctionCall == "nextHordeTrigger") ? "horde" : "nextHordeTrigger";
         }
     }
 }

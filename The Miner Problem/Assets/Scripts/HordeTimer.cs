@@ -9,7 +9,7 @@ public class HordeTimer : MonoBehaviour
 
 	void Awake() {
 		if(instance != null) {
-			Debug.LogWarning ("More than one instance of Inventory found!");
+			Debug.LogWarning ("More than one instance of HordeTimer found!");
 			return;
 		}
 		instance = this;
@@ -91,10 +91,10 @@ public class HordeTimer : MonoBehaviour
 
         bullets = Mathf.Min(bullets, factories.Count);
 
-        if (difficulty == "easy")                EasyShots(bullets);   
-        else if (difficulty == "medium")         MediumShots(bullets);
-        else if (difficulty == "hard")           HardShots(bullets);
-        else                                     InsaneShots(bullets);
+        if (difficulty == "easy")                triggerEasyShots(bullets);   
+        else if (difficulty == "medium")         triggerNormalShots(bullets);
+        else if (difficulty == "hard")           triggerHardShots(bullets);
+        else                                     triggerInsaneShots(bullets);
     }
 
     public void SetupShots()
@@ -108,7 +108,7 @@ public class HordeTimer : MonoBehaviour
         }
     }
 
-    private void knuthShuffle(int[] numbers)
+    private void shuffleArray(int[] numbers)
     {
         // Knuth shuffle algorithm :: courtesy of Wikipedia :)
         for (int t = 0; t < numbers.Length; t++ )
@@ -127,12 +127,12 @@ public class HordeTimer : MonoBehaviour
         for (int i = 0; i < factories.Count; i++) 
             randomNumbers[i] = i;
         
-        knuthShuffle(randomNumbers);
+        shuffleArray(randomNumbers);
 
         return randomNumbers;
     }
 
-    public void EasyShots (int bullets)
+    private void triggerEasyShots (int bullets)
     {
         // Reducing minimal number of bullets to 1.
         bullets--;
@@ -143,7 +143,7 @@ public class HordeTimer : MonoBehaviour
         }
     }
 
-    public void MediumShots (int bullets)
+    private void triggerNormalShots (int bullets)
     {
         int[] order = getRandomFactories();
         for (int i = 0; i < bullets; i++) {
@@ -151,7 +151,7 @@ public class HordeTimer : MonoBehaviour
         }
     }
 
-    public void HardShots (int bullets)
+    private void triggerHardShots (int bullets)
     {
         int[] order = getRandomFactories();
         for (int i = 0; i < bullets; i++) {
@@ -159,7 +159,7 @@ public class HordeTimer : MonoBehaviour
         }
     }
 
-    public void InsaneShots (int bullets)
+    private void triggerInsaneShots (int bullets)
     {
         int[] order = getRandomFactories();
         for (int i = 0; i < bullets; i++) {

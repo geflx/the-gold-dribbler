@@ -5,30 +5,26 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     #region Singleton
-
 	public static GameManager instance;
 
 	void Awake() {
 		if(instance != null) {
-			Debug.LogWarning ("More than one instance of Inventory found!");
+			Debug.LogWarning ("More than one instance of GameManager found!");
 			return;
 		}
 		instance = this;
 	}
-
 	#endregion
 
     public int horde;
     public float score;
-    public int subHordes = 1;
-    public float intervalTime = 5f;
     public bool gameOver = false;
     public GameObject gameOverPanel;
 
     void Start ()
     {
         horde = 0;
-        score = 0f;        
+        score = 0f; 
 
         Time.timeScale = 1;
         AudioManager.instance.PlayGameplaySound();

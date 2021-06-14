@@ -5,17 +5,15 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     #region Singleton
-
 	public static Player instance;
 
 	void Awake() {
 		if(instance != null) {
-			Debug.LogWarning ("More than one instance of Inventory found!");
+			Debug.LogWarning ("More than one instance of Player found!");
 			return;
 		}
 		instance = this;
 	}
-
 	#endregion
 
     // Characteristics
@@ -25,7 +23,7 @@ public class Player : MonoBehaviour
     // Movement
     public int maxJumps = 2;
     public int jumpCounter = 2;
-    public bool isGrounded;
+    public bool isGrounded = true;
     private float direction = -1f;
     private float lastHorizontalDir = -1f;
 
@@ -45,7 +43,6 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        isGrounded = true;
         rigidBody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -54,18 +51,15 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (mobileMode)
-            moveMobileMode();
-        else
-            move();
-
+        move();
         checkSpriteRendererFlip();
         updateAnimator();
-        handleScore();
-        handleSuicide();
+        updateScore();
+        handleDeath();
     }
 
-    void checkSpriteRendererFlip()
+    // Flip sprite renderer horizontally
+    private void checkSpriteRendererFlip()
     {
         if (direction == 0f)
             return;
@@ -74,9 +68,9 @@ public class Player : MonoBehaviour
             spriteRenderer.flipX = !spriteRenderer.flipX;
             lastHorizontalDir = direction;
         }
-
     }
 
+    // Updating animator variables
     private void updateAnimator()
     {
         animator.SetBool("isGrounded", isGrounded);
@@ -84,13 +78,15 @@ public class Player : MonoBehaviour
         animator.SetFloat("velocityY", rigidBody.velocity.y);
     }
 
-    private void handleSuicide()
+    // Checking player positionY and maybe defining gameOver
+    private void handleDeath()
     {
         if (gameObject.transform.position.y <= -6f)
             GameManager.instance.handleGameOver();
     }
 
-    private void handleScore ()
+    // Update score and its text color
+    private void updateScore ()
     {
         if (HordeManager.instance.runScore) {
             GameManager.instance.score += Time.deltaTime;
@@ -101,18 +97,22 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void move() 
+    private void move()
     {
-        moveHorizontally();
-
-        if(Input.GetKeyDown("space") && jumpCounter > 0)
-            jump();
+        if (mobileMode)
+            moveMobileMode();
+        else
+            moveDesktopMode();
     }
 
-    private void moveHorizontally ()
+    // (Desktop) Move using keyboard
+    private void moveDesktopMode() 
     {
         direction = Input.GetAxisRaw("Horizontal");
         rigidBody.velocity = new Vector2(direction * speed, rigidBody.velocity.y);
+
+        if(Input.GetKeyDown("space") && jumpCounter > 0)
+            jump();
     }
 
     private void jump ()
@@ -121,6 +121,7 @@ public class Player : MonoBehaviour
         jumpCounter--;
     }
 
+    // (Mobile) Move using joystick
     private void moveMobileMode() 
     {
         // Handle joystick dead zone sensitivity.
@@ -134,6 +135,7 @@ public class Player : MonoBehaviour
         rigidBody.velocity = new Vector2(direction * speed, rigidBody.velocity.y);
     }
 
+    // (Mobile) Jump function (called by jump button)
     public void jumpMobileMode()
     {
         if(jumpCounter > 0)
