@@ -32,7 +32,7 @@ public class CanvasManager : MonoBehaviour
 
     public void ShowHorde ()
     {
-        hordeLabel.text = "Level " + HordeManager.instance.horde;
+        hordeLabel.text = LanguageTranslation.fields["Level"] + " " + HordeManager.instance.horde;
     }
 
     public void HideHorde ()

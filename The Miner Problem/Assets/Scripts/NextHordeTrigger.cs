@@ -89,7 +89,21 @@ public class NextHordeTrigger : MonoBehaviour
         downArrowAnimator.SetBool("isActive", false);
 
         coroutine = SetupEndNextHordeTrigger(3.0f);
-        StartCoroutine (coroutine);        
+        StartCoroutine (coroutine);      
+
+        SetupPortalJumpFreeze();  
+    }
+
+    private IEnumerator RestorePlayerSpeedSetup(float timeFrozen)
+    {
+        yield return new WaitForSeconds(timeFrozen);
+        Player.instance.speed = Player.instance.defaultSpeed;
+    }
+    private void SetupPortalJumpFreeze()
+    {
+        Player.instance.speed = 0.0f;
+        IEnumerator coroutine = RestorePlayerSpeedSetup(0.7f);
+        StartCoroutine(coroutine);
     }
 
     private void deleteAllActiveJewels ()
