@@ -38,6 +38,7 @@ public class Player : MonoBehaviour
     private Color activeScore = new Color (1.0f, 0.86f, 0f, 1.0f);
 
     // Mobile mode
+    public FPSJoystick fpsJoystick;
     public Joystick joystick;
     public bool mobileMode;
 
@@ -132,6 +133,8 @@ public class Player : MonoBehaviour
             direction = -1;
         else
             direction = 0;
+
+        //direction = fpsJoystick.horizontal; // Future update!
 
         rigidBody.velocity = new Vector2(direction * speed, rigidBody.velocity.y);
     }

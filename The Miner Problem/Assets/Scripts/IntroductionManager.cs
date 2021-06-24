@@ -6,6 +6,14 @@ using UnityEngine.SceneManagement;
 public class IntroductionManager : MonoBehaviour
 {
     public float introductionTime;
+    public GameObject skipButton;
+
+    void Start ()
+    {
+        /* Player can skip introduction if he already had achieved some score */
+        if (PlayerPrefs.GetFloat("timeHighscore", 0f) > 0.0f)
+            skipButton.SetActive(true);
+    }
 
     void Update ()
     {
@@ -15,7 +23,7 @@ public class IntroductionManager : MonoBehaviour
             LoadMainMenu();
     }
 
-    private void LoadMainMenu ()
+    public void LoadMainMenu ()
     {
         SceneManager.LoadScene("Menu");
     }
